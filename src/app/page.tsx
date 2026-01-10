@@ -44,7 +44,6 @@ export default function Home() {
       <div className="w-full lg:w-[49%] ">
         <div className="static md:sticky flex flex-col top-18 gap-5">
           <PowerEstimation />
-          {/* <Setting /> */}
         </div>
       </div>
 
