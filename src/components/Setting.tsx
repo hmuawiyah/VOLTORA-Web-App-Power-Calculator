@@ -12,10 +12,10 @@ const Setting = () => {
 
     const handleDownload = () => {
         htmlToImage
-            .toJpeg(document.getElementById('my-node'), { quality: 0.95 })
+            .toJpeg(document.getElementById('my-node'), { quality: 1 })
             .then(function (dataUrl) {
                 var link = document.createElement('a');
-                link.download = 'my-image-name.jpeg';
+                link.download = 'power-estimation.jpeg';
                 link.href = dataUrl;
                 link.click();
             });

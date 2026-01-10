@@ -1,24 +1,31 @@
 import itemsData from "@/components/data/itemsData.json"
+import { useItemsStore } from "@/store/store"
 import { LuGamepad2, LuMonitor } from "react-icons/lu"
 import { MdPhoneIphone } from "react-icons/md"
 
+
 type Category = "home_appliance" | "work_device" | "gaming"
 
-export type Item = {
-    title: string
-    icon: string
-    power: number
-    category: Category
-    qty: number
-    hrs: number
+export type BaseItem = {
+  title: string
+  icon: string
+  power: number
+  category: Category
 }
 
-export const typedItemsData: Item[] = itemsData.map((item) => ({
+export type Item = BaseItem & {
+  qty: number
+  hrs: number
+}
+
+
+export const typedItemsData: BaseItem[] = itemsData.map((item) => ({
   title: item.title,
   icon: item.icon,
   power: item.power,
   category: item.category as Category,
 }))
+
 
 
 export const categories: Category[] = ["home_appliance", "work_device", "gaming"]
@@ -44,7 +51,7 @@ export const categoryConfig: Record<
     },
 }
 
-export const grouped = typedItemsData.reduce<Record<Category, Item[]>>(
+export const grouped = typedItemsData.reduce<Record<Category, BaseItem[]>>(
     (acc, item) => {
         acc[item.category].push(item)
         return acc
@@ -54,3 +61,18 @@ export const grouped = typedItemsData.reduce<Record<Category, Item[]>>(
     gaming: []
     }
 )
+
+export const filteredGrouped = categories.reduce((acc, category) => {
+
+    const { items, addItem, removeItem, search, setSearch } = useItemsStore()
+
+    const filteredItems = grouped[category].filter(item =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+    )
+
+    if (filteredItems.length > 0) {
+        acc[category] = filteredItems
+    }
+
+    return acc
+}, {} as Partial<typeof grouped>)

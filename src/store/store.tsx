@@ -18,6 +18,9 @@ type Store = {
     selectedPriceNumber: () => any
     setPrice: (value: string) => void
 
+    search: string
+    setSearch: (value: string) => void
+
 }
 
 export const useItemsStore = create<Store>(
@@ -111,6 +114,12 @@ export const useItemsStore = create<Store>(
             set(state => ({
                 selectedPrice: value
             })),
+
+        search: "",
+        setSearch: (value) =>
+            set(() => ({
+                search: value
+            }))
 
     })
 )

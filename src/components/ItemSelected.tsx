@@ -76,6 +76,8 @@ export const NoDataItemSelected = () => {
 const ItemSelected = () => {
 
   const { items, addItem, removeItem } = useItemsStore()
+  // const totalkWh = items.reduce((acc, item) => acc + (item.power * item.hrs * item.qty), 0) / 1000
+  const getPrice = useItemsStore(state => state.selectedPriceNumber)
 
   return (
     <div className="flex flex-col gap-5">
@@ -101,7 +103,7 @@ const ItemSelected = () => {
             </div>
 
             <div className="">
-              <span className="flex justify-end text-muted text-xs lg:text-base mb-2">Rp 147.359/mth</span>
+              <span className="flex justify-end text-muted text-xs lg:text-base mb-2">Rp {(item.power * item.hrs * item.qty / 1000 * 30 * getPrice().kwh).toLocaleString("id-ID")} /mth</span>
               <div className="flex gap-3">
 
                 <InputPlusMinus inputtype="qty" index={i} inputvalue={item.qty ?? ""} />
