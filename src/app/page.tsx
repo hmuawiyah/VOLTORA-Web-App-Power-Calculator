@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button"
 import { useItemsStore } from "@/store/store"
 import Image from "next/image"
 import { LuRotateCcw } from "react-icons/lu"
-// import itemsData from "@/components/data/itemsData.json"
 
 export default function Home() {
 
