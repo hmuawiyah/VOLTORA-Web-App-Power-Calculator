@@ -15,14 +15,25 @@ import { Badge } from "./ui/badge"
 
 import { useItemsStore } from "@/store/store"
 
-import { categories, categoryConfig, grouped, filteredGrouped } from "@/components/data/categoryData"
+import { categories, categoryConfig, grouped } from "@/components/data/dataCategory"
 
 export function AddDevice() {
 
   const { items, addItem, removeItem, search, setSearch } = useItemsStore()
-  // const [search, setSearch] = useState("")
 
-  // const result = items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
+
+  const filteredGrouped = categories.reduce((acc, category) => {
+    const filteredItems = grouped[category].filter(item =>
+      item.title.toLowerCase().includes(search.toLowerCase())
+    )
+
+    if (filteredItems.length > 0) {
+      acc[category] = filteredItems
+    }
+
+    return acc
+  }, {} as Partial<typeof grouped>)
+
 
   return (
     <Dialog>
@@ -33,7 +44,7 @@ export function AddDevice() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent>
+      <DialogContent className="bg-card">
         <DialogTitle>Choose Device</DialogTitle>
         <Button onClick={() => alert(JSON.stringify(items))}>items</Button>
 
@@ -64,22 +75,6 @@ export function AddDevice() {
             </div>
           ))}
 
-          {/* {categories.map((category) => (
-            <div key={category} className="flex flex-col gap-4 mb-4">
-              <Badge variant={category} className="flex items-center gap-2">
-                {categoryConfig[category].icon}
-                {categoryConfig[category].label}
-              </Badge>
-
-
-              {grouped[category].map((item, i) => (
-                <Button key={i} variant="secondary" className="justify-between" onClick={() => addItem(item)}>
-                  <span>{item.title}</span>
-                  <span>{item.power}</span>
-                </Button>
-              ))}
-            </div>
-          ))} */}
 
         </div>
 

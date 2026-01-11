@@ -1,9 +1,12 @@
 "use client"
-
+import { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
 import { Card, CardContent } from "./ui/card"
 import { Switch } from '@/components/ui/switch'
 import { LuSun, LuMoon, LuShare2, LuDownload } from "react-icons/lu"
 import { Button } from "./ui/button"
+// import { LuSun, LuMoon } from "react-icons/lu"
+// import { Switch } from "@/components/ui/switch"
 
 import * as htmlToImage from "html-to-image"
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image"
@@ -21,19 +24,40 @@ const Setting = () => {
             });
     }
 
+    const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return null
+
     return (
         <>
             <div className='flex items-center justify-between gap-3'>
                 <div className="flex items-center gap-2">
-                    <LuSun className="size-4.5 md:size-5" />
-                    <Switch
-                        className='
-                                focus-visible:border-ring-sky-600 dark:focus-visible:border-ring-sky-400 focus-visible:ring-sky-600/20 data-[state=checked]:bg-[#2f83df] dark:focus-visible:ring-sky-400/40 dark:data-[state=checked]:bg-sky-400
-                                '
-                        aria-label='Success Switch'
-                        defaultChecked
+                    <LuSun
+                        className={`size-4.5 md:size-5 ${theme === "light" ? "text-yellow-500" : "text-muted-foreground"
+                            }`}
                     />
-                    <LuMoon className="size-4.5 md:size-5" strokeWidth={1.7} />
+
+                    <Switch
+                        checked={theme === "dark"}
+                        onCheckedChange={(v) => setTheme(v ? "dark" : "light")}
+                        className="
+                        data-[state=checked]:bg-[#3589E5]
+                        "
+                        // focus-visible:border-ring-sky-600
+                        // dark:focus-visible:border-ring-sky-400
+                            // focus-visible:ring-sky-600/20
+                            // dark:focus-visible:ring-sky-400/40
+                            // dark:data-[state=checked]:bg-sky-400
+                        aria-label="Theme Switch"
+                    />
+
+                    <LuMoon
+                        className={`size-4.5 md:size-5 ${theme === "dark" ? "text-[#3589E5]" : "text-muted-foreground"
+                            }`}
+                        strokeWidth={1.7}
+                    />
                 </div>
 
                 <div className="flex gap-2">

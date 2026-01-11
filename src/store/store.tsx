@@ -1,10 +1,10 @@
 import { create } from "zustand"
-import type { Item } from "@/components/data/categoryData"
+import type { Item, BaseItem } from "@/components/data/dataCategory"
 import { dataPriceCategory } from "@/components/data/dataPriceCategory"
 
 type Store = {
     items: Item[]
-    addItem: (newItem: Item) => void
+    addItem: (newItem: BaseItem) => void
     removeItem: (index: number) => void
     resetItems: () => void
     addQty: (index: number) => void

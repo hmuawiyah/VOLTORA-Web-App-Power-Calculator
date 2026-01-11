@@ -6,7 +6,7 @@ import Setting from "./Setting"
 
 const Navbar = () => {
   return (
-    <div className="fixed inset-0 flex justify-between items-center h-13 bg-white w-full px-5 md:px-20 xl:px-40 z-50">
+    <div className="fixed inset-0 flex justify-between items-center h-13 border-b bg-card w-full px-5 md:px-20 xl:px-40 z-50">
       <span className="text-xl font-bold uppercase">Voltora</span>
       <Setting />
       {/* <Link href="/" target="_blank">

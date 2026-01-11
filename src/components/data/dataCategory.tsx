@@ -61,18 +61,3 @@ export const grouped = typedItemsData.reduce<Record<Category, BaseItem[]>>(
     gaming: []
     }
 )
-
-export const filteredGrouped = categories.reduce((acc, category) => {
-
-    const { items, addItem, removeItem, search, setSearch } = useItemsStore()
-
-    const filteredItems = grouped[category].filter(item =>
-        item.title.toLowerCase().includes(search.toLowerCase())
-    )
-
-    if (filteredItems.length > 0) {
-        acc[category] = filteredItems
-    }
-
-    return acc
-}, {} as Partial<typeof grouped>)

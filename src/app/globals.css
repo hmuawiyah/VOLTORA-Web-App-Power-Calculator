@@ -55,7 +55,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #EBEFF3;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -90,9 +90,9 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #262626;
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: #333333;
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -100,7 +100,7 @@
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: #a2a2a2;
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
@@ -128,18 +128,37 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-[#EBEFF3] text-foreground;
+    /* @apply bg-background text-foreground; */
   }
 }
 
-@layer components {
+/* @layer components {
   .gradient-accent {
     @apply bg-linear-to-t from-[#449DFF] to-[#2F83DF];
   }
-}
+} */
 
 @layer utilities  {
   .gradient-accent {
     @apply bg-linear-to-t from-[#449DFF] to-[#2F83DF];
+  }
+
+  .gradient-date {
+    @apply border bg-linear-to-t from-[#d3e8ff20] to-[#d3e8ff];
+  }
+
+  .gradient-electric {
+    @apply border bg-linear-to-t from-[#fff7e620] to-[#fff7e6];
+  }
+
+  /* .gradient-dark {
+    @apply bg-linear-to-t from-[#ff0f0f] to-[#ff0f0f];
+  } */
+  .dark .gradient-date {
+    @apply border-none bg-linear-to-t from-[#5E584620] to-[#5E5846];
+  }
+
+  .dark .gradient-electric {
+    @apply border-none bg-linear-to-t from-[#5E584620] to-[#5E5846];
   }
 }

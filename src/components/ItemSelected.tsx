@@ -8,7 +8,7 @@ import { useItemsStore } from "@/store/store"
 import { LuMonitorOff, LuGamepad2, LuMinus, LuPlus, LuTrash2 } from "react-icons/lu"
 import { Input } from "./ui/input"
 
-import { Item, categories, categoryConfig, grouped } from "@/components/data/categoryData"
+import { Item, categories, categoryConfig, grouped } from "@/components/data/dataCategory"
 
 const InputPlusMinus = ({ inputtype, index, inputvalue }: { inputtype: string, index: number, inputvalue: number }) => {
 

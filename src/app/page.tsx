@@ -23,7 +23,7 @@ export default function Home() {
 
         <div className="flex h-18 gap-3">
           <div className="w-fit h-full aspect-square">
-            <Button variant={'secondary'} className="flex bg-white flex-col gap-2 lg:gap-1 w-full h-full rounded-xl shadow-md"
+            <Button variant={'secondary'} className="flex bg-card flex-col gap-2 lg:gap-1 w-full h-full rounded-xl shadow-md transition-none"
               onClick={() => resetItems()}>
               <LuRotateCcw className="size-4 lg:size-5" />
               <span className="text-xs lg:text-base"> Reset </span>

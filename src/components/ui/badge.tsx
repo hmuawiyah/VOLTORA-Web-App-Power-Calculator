@@ -18,11 +18,11 @@ const badgeVariants = cva(
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         home_appliance:
-          "text-xs lg:text-sm text-primary bg-[#d9edff]",
+          "text-xs lg:text-sm text-primary bg-[#d9edff] dark:bg-[#385773]",
         work_device:
-          "text-xs lg:text-sm text-primary bg-[#fbffd9]",
+          "text-xs lg:text-sm text-primary bg-[#fbffd9] dark:bg-[#646c2f]",
         gaming:
-          "text-xs lg:text-sm text-primary bg-[#D9FFDA]",
+          "text-xs lg:text-sm text-primary bg-[#D9FFDA] dark:bg-[#2f5930]",
       },
     },
     defaultVariants: {
