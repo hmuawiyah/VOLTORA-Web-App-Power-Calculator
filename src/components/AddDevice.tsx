@@ -47,7 +47,7 @@ export function AddDevice() {
 
       <DialogContent className="bg-card">
         <DialogTitle>Choose Device</DialogTitle>
-        <Button onClick={() => alert(JSON.stringify(items))}>items</Button>
+        {/* <Button onClick={() => alert(JSON.stringify(items))}>items</Button> */}
 
         <Input placeholder="search device..." className={'bg-background dark:bg-background'} value={search} onChange={e => setSearch(e.target.value)} />
 
