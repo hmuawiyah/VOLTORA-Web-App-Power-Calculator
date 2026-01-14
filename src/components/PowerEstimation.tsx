@@ -52,7 +52,7 @@ const PowerEstimation = () => {
 
                 <div className="flex flex-col justify-between gradient-electric h-23 p-3 mt-4 rounded-xl">
                     <span className="flex items-center gap-2 text-xs lg:text-sm">
-                        <MdElectricBolt /> Electricity rates
+                        <MdElectricBolt /> Electricity rates (per day)
                     </span>
 
                     <div className="flex justify-between text-lg font-semibold">
@@ -81,8 +81,7 @@ const PowerEstimation = () => {
 
 
                 <div className="text-muted/70 text-xs lg:text-sm mt-8">
-                    <p>Electricy Rate Price is on per day</p>
-                    <p>This calculation is only an estimate, not a fixed price</p>
+                    <p>This estimation is based on PLN tariffs and uses dummy wattage data, so it should not be treated as an official reference.</p>
                 </div>
 
             </CardContent>
